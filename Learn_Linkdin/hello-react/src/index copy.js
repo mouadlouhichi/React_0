@@ -9,7 +9,7 @@ function GithubUser({login}){
     .then( res => res.json())
     .then(setData)
     .catch(console.error)
-  }, [])
+  }, [login])
 
   if(data){
     return(
