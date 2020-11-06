@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/React_0/Learn_Udemy1/app_monster/static/css/main.526f02ce.chunk.css",
+    "main.js": "/React_0/Learn_Udemy1/app_monster/static/js/main.65befe5a.chunk.js",
+    "main.js.map": "/React_0/Learn_Udemy1/app_monster/static/js/main.65befe5a.chunk.js.map",
+    "runtime-main.js": "/React_0/Learn_Udemy1/app_monster/static/js/runtime-main.e279de2d.js",
+    "runtime-main.js.map": "/React_0/Learn_Udemy1/app_monster/static/js/runtime-main.e279de2d.js.map",
+    "static/js/2.68f6a8c3.chunk.js": "/React_0/Learn_Udemy1/app_monster/static/js/2.68f6a8c3.chunk.js",
+    "static/js/2.68f6a8c3.chunk.js.map": "/React_0/Learn_Udemy1/app_monster/static/js/2.68f6a8c3.chunk.js.map",
+    "static/js/3.fc07598a.chunk.js": "/React_0/Learn_Udemy1/app_monster/static/js/3.fc07598a.chunk.js",
+    "static/js/3.fc07598a.chunk.js.map": "/React_0/Learn_Udemy1/app_monster/static/js/3.fc07598a.chunk.js.map",
+    "index.html": "/React_0/Learn_Udemy1/app_monster/index.html",
+    "static/css/main.526f02ce.chunk.css.map": "/React_0/Learn_Udemy1/app_monster/static/css/main.526f02ce.chunk.css.map",
+    "static/js/2.68f6a8c3.chunk.js.LICENSE.txt": "/React_0/Learn_Udemy1/app_monster/static/js/2.68f6a8c3.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e279de2d.js",
+    "static/js/2.68f6a8c3.chunk.js",
+    "static/css/main.526f02ce.chunk.css",
+    "static/js/main.65befe5a.chunk.js"
+  ]
+}
