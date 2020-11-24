@@ -1,0 +1,99 @@
+|||||||||||||||||||||||||||||||||  Conditional Rendering||||||||||||||||||||||||||||||||||||||||||||||
+• <h1>Hello!</h1>
+      {unreadMessages.length > 0 &&
+        <h2>
+          You have {unreadMessages.length} unread messages.
+        </h2>
+ => if true (if)
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+|||||||||||||||||||||||||||||||||||||||||  Liste  ||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+const listItems = numbers.map((number) =>
+    // Correct! Key should be specified inside the array.
+    <ListItem key={number.toString()} value={number} />
+  ); 
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+||||||||||||||||||||||||||||||||||||||||| Forms ||||||||||||||||||||||||||||||||||||||||||||||||||||||
+•Controlled Components
+○ <select multiple={true} value={['B', 'C']}>
+○ handleInputChange(event) {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+> uncontrolled components, Formik
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+|||||||||||||||||||||||||||||||||||||||||||Lifting State Up |||||||||||||||||||||||||||||||||||||||||||
+We have two inputs now, but when you enter the temperature in one of them, the othe
+ doesn’t update. This contradicts our requirement: we want to keep them in sync.
+
+We also can’t display the BoilingVerdict from Calculator. The Calculator doesn’t know
+ the current temperature because it is hidden inside the TemperatureInput.
+
+• There should be a single “source of truth” for any data that changes in a React application.
+ Usually, the state is first added to the component that needs it for rendering. Then, if other
+ components also need it, you can lift it up to their closest common ancestor. 
+Instead of trying to sync the state between different components, you should rely on the top-down data flow.
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+||||||||||||||||||||||||||||||||Composition vs Inheritance |||||||||||||||||||||||||||||||||||||||||||
+React has a powerful composition model, and we recommend using composition instead of inheritance to 
+reuse code between components.
+
+• Containment
+function FancyBorder(props) {
+  return (
+    <div className={'FancyBorder FancyBorder-' + props.color}>
+      {props.children}
+    </div>
+  );
+}
+
+function Dialog(props) {
+  return (
+    <FancyBorder color="blue">
+      <h1 className="Dialog-title">
+        {props.title}
+      </h1>
+      <p className="Dialog-message">
+        {props.message}
+      </p>
+      {props.children}
+    </FancyBorder>
+  );
+}
+○ Anything inside the <FancyBorder> JSX tag gets passed into the FancyBorder component as a children prop.
+  Since FancyBorder renders {props.children} inside a <div>, the passed elements appear in the final output.
+○ React elements like <Contacts /> and <Chat /> are just objects, so you can pass them as props like any other data.
+
+•Specialization
+Sometimes we think about components as being “special cases” of other components. For example, 
+we might say that a WelcomeDialog is a special case of Dialog.In React, this is also achieved by composition,
+where a more “specific” component renders a more “generic” one and configures it with prop
+
+• Inheritance
+At Facebook, we use React in thousands of components, and we haven’t found any use cases where we would recommend
+creating component inheritance hierarchies. Props and composition give you all the flexibility you need to customize
+ a component’s look and behavior in an explicit and safe way.
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+||||||||||||||||||||||||||||||Thinking in React ||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+• Step 1: Break The UI Into A Component Hierarchy
+• Step 2: Build A Static Version in React
+• Step 3: Identify The Minimal (but complete) Representation Of UI State
+• Step 4: Identify Where Your State Should Live
+• Step 5: Add Inverse Data Flow
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||

@@ -1,0 +1,102 @@
+|||||||||||||||||||||||||||||||||||||||||  Accessibility |||||||||||||||||||||||||||||||||||||||||||||
+
+• WebAIM WAVE: The Web Accessibility Evaluation Tool is another accessibility browser extension.
+• Setting the document title
+• Setting the language
+• Color contrast
+• Labeling
+• Notifying the user of errors
+• Focus Control
+• Keyboard focus and focus outline
+• Mechanisms to skip to desired content
+• Programmatically managing focus ;we can use Refs to DOM elements.
+• Mouse and pointer events
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+||||||||||||||||||||||||||||||||||||||||| Code-Splitting |||||||||||||||||||||||||||||||||||||||||||||
+• The best way to introduce code-splitting into your app is through the dynamic import() syntax.
+○ import("./math").then(math => {
+  console.log(math.add(16, 26));
+  });
+• React.lazy : The React.lazy function lets you render a dynamic import as a regular component.
+○ const OtherComponent = React.lazy(() => import('./OtherComponent'));
+○ Route-based code splitting ♦_CODE_♦
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+||||||||||||||||||||||||||||||||||||||||| Context ||||||||||||||||||||||||||||||||||||||||||||||||||||
+• Context provides a way to pass data through the component tree without having to pass props down
+  manually at every level.
+
+• React.createContext : Creates a Context object
+○ const MyContext = React.createContext(defaultValue);
+• Context.Provider : allows consuming components to subscribe to context changes.
+○ <MyContext.Provider value={/* some value */}>
+• Class.contextType : The contextType property on a class can be assigned a Context object created by
+  React.createContext(). This lets you consume the nearest current value of that Context type using
+  this.context. You can reference this in any of the lifecycle methods including the render function.
+• Context.Consumer : A React component that subscribes to context changes. This lets you subscribe to
+  a context within a function component
+• Context.displayName : Context object accepts a displayName string property. React DevTools uses this 
+string to determine what to display for the context.
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+|||||||||||||||||||||||||||||||||| Error Boundaries|||||||||||||||||||||||||||||||||||||||||||||||||||
+• catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+||||||||||||||||||||||||||||||||||||| JSX In Depth |||||||||||||||||||||||||||||||||||||||||||||||||||
+• <MyButton color="blue" shadowSize={2}>
+  Click Me
+</MyButton>
+
+ => React.createElement(
+  MyButton,
+  {color: 'blue', shadowSize: 2},
+  'Click Me'
+   )
+• Using Dot Notation for JSX Type
+ const MyComponents = {
+  DatePicker: function DatePicker(props) {
+    return <div>Imagine a {props.color} datepicker here.</div>;
+  }
+ }
+
+ function BlueDatePicker() {
+  return <MyComponents.DatePicker color="blue" />;
+ }
+
+• Spread Attributes : If you already have props as an object, and you want to pass it in JSX,
+  you can use ... as a “spread” operator to pass the whole props object. These two components are equivalent
+• Children in JSX
+○ Functions as Children
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+|||||||||||||||||||||||||||||||||||| Profiler API |||||||||||||||||||||||||||||||||||||||||||||||||||
+• The Profiler measures how often a React application renders and what the “cost” of rendering is. 
+  Its purpose is to help identify parts of an application that are slow and may benefit from optimizations 
+  such as memoization.
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+|||||||||||||||||||||||||||||||||||| Uncontrolled Components|||||||||||||||||||||||||||||||||||||||||||
+• this.input = React.createRef();
+  alert('A name was submitted: ' + this.input.current.value);
+  <input type="text" ref={this.input} />
+
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+||||||||||||||||||||||||||||||||||||||| React Top-Level API|||||||||||||||||||||||||||||||||||||||||||
+• React.Component is the base class for React components when they are defined using ES6 classes
+• React.PureComponent is similar to React.Component. The difference between them is that React.Component
+  doesn’t implement shouldComponentUpdate(), but React.PureComponent implements it with a shallow prop 
+  and state comparison.
+
+||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
